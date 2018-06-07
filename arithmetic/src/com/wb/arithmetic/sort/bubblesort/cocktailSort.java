@@ -108,7 +108,7 @@ public class cocktailSort {
                 index = j;
             }
 
-            for(int j = index - 1; j > i ; j--){
+            for(int j = index; j > i ; j--){
                 if(array[j] < array[j -1]){
                     int temp = array[j];
                     array[j] = array[j -1];
@@ -163,7 +163,7 @@ public class cocktailSort {
     public static void main(String[] args) {
         int []array = {23,22,13,11,5,88,14,24,6,100,25,11,20,15,75,3};
         System.out.println("没问题吧？");
-        cocktailSort(array);
+        cocktailSort2(array);
     }
 
 }
