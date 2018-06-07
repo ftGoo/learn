@@ -10,7 +10,7 @@ import java.util.Arrays;
  针对所有的元素重复以上的步骤，除了最后一个。
  持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
  */
-public class bubbleSortTry {
+public class bubbleSort {
 
     /**
      * 在不太记得冒泡排序时的一次尝试，显然结果是错误的
@@ -69,15 +69,37 @@ public class bubbleSortTry {
     }
 
     /**
+     * 尝试改良版，当一轮没任何交换的时候直接提前结束
+     * 不知道这样改是否有问题
+     * @param array
+     * @return
+     */
+    public static int[] bubbleSortBreak(int[] array){
+        for(int i = 0; i < array.length - 1 ; i++){
+            boolean change = false;
+            for(int j = 0 ; j < array.length - i - 1; j++){
+                if(array[j] > array[j + 1]){
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    change = true;
+                }
+                //System.out.print(Arrays.toString(array));
+            }
+            if(!change){
+                System.out.println("在这个轮数提前结束" + (i+1));
+                break;
+            }
+            System.out.println("轮数:" + (i+1));
+            System.out.println(Arrays.toString(array));
+        }
+        return array;
+    }
+
+    /**
      * 网上流传的一个实现
      * 和我上一个自己推导出来的区别是，一个是相邻对比满足条件的调换，一个是两两对比让起始位置的数字确定。
-     * 根据以下描述，这傻吊实现的根本不是冒泡算法
-     *
-     * 冒泡排序算法的原理如下：
-     比较相邻的元素。如果第一个比第二个大，就交换他们两个。
-     对每一对相邻元素做同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
-     针对所有的元素重复以上的步骤，除了最后一个。
-     持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+     * 根据冒泡算法定义，这傻吊实现的根本不是冒泡算法吧
      * @param array
      */
     public static int[] bubbleSort3(int[] array){
@@ -95,8 +117,9 @@ public class bubbleSortTry {
     }
 
     public static void main(String[] args) {
-        int []array = {23,22,13,11,5,88,14,24,6,100,25,11,20,15,75,3};
-        System.out.println("经过错误改版后的");
-        bubbleSortTry.bubbleSort3(array);
+        int []array = {23,22,13,11,5,88,14,24,6,100,25,11,20,15,75,3,101,102,103};
+        int []array2 = {1,2,4,5,3,4,6,7};
+        bubbleSort2(array);
+        bubbleSort.bubbleSortBreak(array2);
     }
 }
