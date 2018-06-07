@@ -47,7 +47,7 @@ public class bubbleSortTry {
     }
 
     /**
-     * 第二次尝试f'g'g'g'g'g'g'g'g'g'g'g'g'g'g't
+     * 第二次尝试
      * 证实是正确版本
      * @param array
      * @return
