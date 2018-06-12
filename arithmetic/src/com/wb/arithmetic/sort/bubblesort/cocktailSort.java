@@ -142,7 +142,6 @@ public class cocktailSort {
                 }
 
             }
-
             up--;
 
             for(int i = up; i > row; i--){
@@ -152,10 +151,8 @@ public class cocktailSort {
                     array[i - 1] = temp;
                 }
             }
-
             row++;
             System.out.println(Arrays.toString(array));
-
         }
         return array;
     }
